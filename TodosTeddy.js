@@ -47,8 +47,6 @@ var todoList = {
   }
 };
 
-
-
 var handlers = {
   addTodo: function() {
     var addTodoTextInput = document.getElementById('addTodoTextInput');
