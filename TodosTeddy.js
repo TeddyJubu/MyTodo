@@ -89,20 +89,29 @@ var view = {
     todosUl.innerHTML = '';
     for (var i = 0; i < todoList.todos.length; i++) {
       var todoLi = document.createElement('li');
+      var elem = document.createElement('del');
       var todo = todoList.todos[i];
-      var todoTextWithCompletion = '';
+     // var todoLi.textContent = '';
 
       if (todo.completed === true) {
-        todoTextWithCompletion = '(x) ' + todo.todoText;
+        todoLi.textContent = todo.todoText+'        ';
+
+        elem.appendChild(todoLi);
+        todoLi.appendChild(this.DeleteTodosButton());
+        todoLi.appendChild(this.ToggleTodosButton());
+          todosUl.appendChild(elem);
       } else {
-        todoTextWithCompletion = '( ) ' + todo.todoText;
+        todoLi.textContent = todo.todoText+'        ';
+
+        //elem.appendChild(todoLi);
+        todoLi.appendChild(this.DeleteTodosButton());
+        todoLi.appendChild(this.ToggleTodosButton());
+          todosUl.appendChild(todoLi);
       }
       
 	  todoLi.id = i;
-      todoLi.textContent = todoTextWithCompletion+' ';
-    todoLi.appendChild(this.DeleteTodosButton());
-    todoLi.appendChild(this.ToggleTodosButton());
-      todosUl.appendChild(todoLi);
+      //todoLi.textContent = todoTextWithCompletion+' ';
+     
     }
   },
 
