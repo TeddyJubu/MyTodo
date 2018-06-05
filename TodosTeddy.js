@@ -91,7 +91,6 @@ var view = {
       var todoLi = document.createElement('li');
       var elem = document.createElement('del');
       var todo = todoList.todos[i];
-     // var todoLi.textContent = '';
 
       if (todo.completed === true) {
         todoLi.textContent = todo.todoText+'        ';
@@ -102,15 +101,12 @@ var view = {
           todosUl.appendChild(elem);
       } else {
         todoLi.textContent = todo.todoText+'        ';
-
-        //elem.appendChild(todoLi);
         todoLi.appendChild(this.DeleteTodosButton());
         todoLi.appendChild(this.ToggleTodosButton());
           todosUl.appendChild(todoLi);
       }
       
 	  todoLi.id = i;
-      //todoLi.textContent = todoTextWithCompletion+' ';
      
     }
   },
