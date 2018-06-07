@@ -20,3 +20,18 @@ checkbox.addEventListener( 'change', function() {
 </body>
 </html>
 
+
+document.addEventListener("DOMContentLoaded", function (event) {
+    var _selector = document.querySelector('input[name=myCheckbox]');
+    _selector.addEventListener('change', function (event) {
+        if (_selector.checked) {
+            // do something if checked
+        } else {
+            // do something else otherwise
+        }
+    });
+});
+var input = document.createElement("input");
+input.type = "text";
+input.className = "css-class-name"; // set the CSS class
+container.appendChild(input); // put it into the DOM
