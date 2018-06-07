@@ -70,9 +70,7 @@ var handlers = {
   },
 
   toggleCompleted: function(position) {
-    //var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
     todoList.toggleCompleted(position);
-    //toggleCompletedPositionInput.value = '';
     view.displayTodos();
   },
 
@@ -92,23 +90,20 @@ var view = {
       var elem = document.createElement('del');
       var input = document.createElement('input');
       input.type = "checkbox";
-      input.className = "checkbox"; //Here i left
+      input.className = "checkbox"; 
       var todo = todoList.todos[i];
       
       if (todo.completed === true) {
         todoLi.textContent = todo.todoText+'        ';
-        //input.appendChild(elem);
         
         elem.appendChild(todoLi);
         todoLi.appendChild(input);
         todoLi.appendChild(this.DeleteTodosButton());
-        todoLi.appendChild(this.ToggleTodosButton());
           todosUl.appendChild(elem);
       } else {
         todoLi.textContent = todo.todoText+'        ';
         todoLi.appendChild(input);        
         todoLi.appendChild(this.DeleteTodosButton());
-        todoLi.appendChild(this.ToggleTodosButton());
           todosUl.appendChild(todoLi);
       }
       
@@ -123,13 +118,6 @@ var view = {
 		CreateDeleteButton.className = 'CreateDeleteButton';
 		return CreateDeleteButton;
   },
-
-  ToggleTodosButton: function(){
-		var CreatetoggleButton = document.createElement('button');
-    CreatetoggleButton.textContent = 'Toggle';
-		CreatetoggleButton.className = 'CreatetoggleButton';
-		return CreatetoggleButton;
-  },
   
 	EventListener: function(){
 		var TodoUl= document.querySelector('ul');
@@ -138,9 +126,7 @@ var view = {
 		if(clicked.className==='CreateDeleteButton'){
 			handlers.deleteTodo(parseInt(event.target.parentNode.id));
     }
-    if(clicked.className==='CreatetoggleButton'){
-			handlers.toggleCompleted(parseInt(event.target.parentNode.id));
-		}
+ 
 });
   },
   CheckBox: function(){
